@@ -10,12 +10,6 @@ const MINIMUM_IN_ELEMENT_EMBER_VERSION = '2.10.0';
 module.exports = {
   name: 'ember-in-element-polyfill',
 
-  init() {
-    let checker = new VersionChecker(this);
-    this.emberDep = checker.forEmber();
-    this._super.init.apply(this, arguments);
-  },
-
   setupPreprocessorRegistry(type, registry) {
     registry.add('htmlbars-ast-plugin', {
       name: 'ember-in-element-polyfill',
@@ -37,6 +31,10 @@ module.exports = {
   },
 
   needsWormholePolyfill() {
+    if (!this.emberDep) {
+      let checker = new VersionChecker(this);
+      this.emberDep = checker.forEmber();
+    }
     return this.emberDep.lt(MINIMUM_IN_ELEMENT_EMBER_VERSION);
   }
 };
