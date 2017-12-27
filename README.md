@@ -1,26 +1,9 @@
 # ember-in-element-polyfill
 
-This README outlines the details of collaborating on this Ember addon.
+This will make `in-element` (see [RFC 287](https://github.com/emberjs/rfcs/pull/287)) available in all Ember versions
+starting at 1.13.
 
-## Installation
+For Glimmer2 based Ember versions (2.10+) this addon will use the already available private `-in-element`, while for 
+earlier versions (1.13 - 2.9) it will use a fallback based on [ember-wormhole](https://github.com/yapplabs/ember-wormhole). 
 
-* `git clone <repository-url>` this repository
-* `cd ember-in-element-polyfill`
-* `yarn install`
-
-## Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+All of this is done using AST transforms, so no run-time overhead will occur.
