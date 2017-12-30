@@ -16,7 +16,9 @@ module.exports = {
       return;
     }
 
-    registry.add('htmlbars-ast-plugin', {
+    let plugins = registry.load('htmlbars-ast-plugin');
+    let maybeInElementPlugin = plugins.find((plugin) => plugin.name === 'ember-maybe-in-element-transform');
+    let inElementPolyfillPlugin = {
       name: 'ember-in-element-polyfill',
       plugin: this.hasPrivateInElement() ? InElementTransform : InElementWormholeTransform,
       baseDir() {
@@ -24,8 +26,19 @@ module.exports = {
       },
       cacheKey() {
         return 'ember-in-element-polyfill';
-      },
-    });
+      }
+    };
+    registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
+
+    // Yes, this a bit ugly, but it seems for some Ember versions (more specifically ember-temmplate-compiler probably)
+    // AST plugins are applied in a different order (reversed?) than the order they are added to the registry.
+    // With this dirty hack we make sure there is always a "polyfill" transform running after the "maybe" transform, to make
+    // sure the AST returned from "maybe" containing `-in-element` gets further transformed to use `ember-wormhole` instead!
+    if (maybeInElementPlugin) {
+      registry.remove('htmlbars-ast-plugin', maybeInElementPlugin);
+      registry.add('htmlbars-ast-plugin', maybeInElementPlugin);
+      registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
+    }
   },
 
   shouldIncludeChildAddon(addon) {
