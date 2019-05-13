@@ -9,7 +9,7 @@ const MINIMUM_PRIVATE_IN_ELEMENT_EMBER_VERSION = '2.10.0';
 const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '10.0.0'; // t.b.d
 
 module.exports = {
-  name: 'ember-in-element-polyfill',
+  name: require('./package').name,
 
   setupPreprocessorRegistry(type, registry) {
     if (this.hasPublicInElement()) {
@@ -62,7 +62,7 @@ module.exports = {
     this.ensureEmberVersion();
     return this.emberVersion.gte(MINIMUM_PRIVATE_IN_ELEMENT_EMBER_VERSION);
   },
-  
+
   ensureEmberVersion() {
     if (!this.emberVersion) {
       let checker = new VersionChecker(this);
