@@ -2,10 +2,8 @@
 
 const VersionChecker = require('ember-cli-version-checker');
 const InElementTransform = require('./lib/in-element-transform');
-const InElementWormholeTransform = require('./lib/in-element-wormhole-transform');
 const debug = require('debug')('ember-in-element-polyfill');
 
-const MINIMUM_PRIVATE_IN_ELEMENT_EMBER_VERSION = '2.10.0';
 const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '10.0.0'; // t.b.d
 
 module.exports = {
@@ -20,7 +18,7 @@ module.exports = {
     let maybeInElementPlugin = plugins.find((plugin) => plugin.name === 'ember-maybe-in-element-transform');
     let inElementPolyfillPlugin = {
       name: 'ember-in-element-polyfill',
-      plugin: this.hasPrivateInElement() ? InElementTransform : InElementWormholeTransform,
+      plugin: InElementTransform,
       baseDir() {
         return __dirname;
       },
@@ -29,7 +27,7 @@ module.exports = {
       }
     };
     registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
-    debug(`adding AST transform ember-in-element-polyfill, with ${this.hasPrivateInElement() ? 'private -in-element' : 'ember-wormhole'} polyfill`);
+    debug(`adding AST transform ember-in-element-polyfill`);
 
     // Yes, this a bit ugly, but it seems for some Ember versions (more specifically ember-temmplate-compiler probably)
     // AST plugins are applied in a different order (reversed?) than the order they are added to the registry.
@@ -42,25 +40,11 @@ module.exports = {
     }
   },
 
-  shouldIncludeChildAddon(addon) {
-    if (addon.name === 'ember-wormhole') {
-      let include = !this.hasPrivateInElement() && !this.hasPublicInElement();
-      debug(include ? 'ember-wormhole is required, including it as a child addon.' : 'No polyfill needed for in-element, skipping ember-wormhole addon');
-      return include;
-    }
-    return this._super.shouldIncludeChildAddon.apply(this, arguments);
-  },
-
   hasPublicInElement() {
     // @todo once https://github.com/emberjs/rfcs/pull/287 is accepted and implemented, this function should return
     // true for any Ember version that already ships a public `in-element`!
     this.ensureEmberVersion();
     return this.emberVersion.gte(MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION);
-  },
-
-  hasPrivateInElement() {
-    this.ensureEmberVersion();
-    return this.emberVersion.gte(MINIMUM_PRIVATE_IN_ELEMENT_EMBER_VERSION);
   },
 
   ensureEmberVersion() {
