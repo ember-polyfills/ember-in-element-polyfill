@@ -17,14 +17,7 @@ a need for the additional `renderInPlace` functionality.
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v1.13 or above
-
-
-
-Compatibility
-------------------------------------------------------------------------------
-
-* Ember.js v2.18 or above
+* Ember.js v2.12 or above
 * Ember CLI v2.13 or above
 
 
