@@ -40,6 +40,18 @@ module.exports = {
     }
   },
 
+  treeForAddon() {
+    if (!this.hasPublicInElement()) {
+      return this._super.treeForAddon.apply(this, arguments);
+    }
+  },
+
+  treeForApp() {
+    if (!this.hasPublicInElement()) {
+      return this._super.treeForApp.apply(this, arguments);
+    }
+  },
+
   hasPublicInElement() {
     // @todo once https://github.com/emberjs/rfcs/pull/287 is accepted and implemented, this function should return
     // true for any Ember version that already ships a public `in-element`!
