@@ -1,8 +1,8 @@
 'use strict';
 
 const VersionChecker = require('ember-cli-version-checker');
-const debug = require('debug')('ember-in-element-polyfill');
 const InElementTransform = require('./lib/in-element-transform');
+const debug = require('debug')('ember-in-element-polyfill');
 
 const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '10.0.0'; // t.b.d
 
