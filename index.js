@@ -34,7 +34,7 @@ module.exports = {
       cacheKey() {
         return 'ember-in-element-polyfill';
       }
-    }
+    };
   },
 
   treeForAddon() {
