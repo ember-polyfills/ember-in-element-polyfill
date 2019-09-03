@@ -1,8 +1,8 @@
 'use strict';
 
 const VersionChecker = require('ember-cli-version-checker');
-const InElementTransform = require('./lib/in-element-transform');
 const debug = require('debug')('ember-in-element-polyfill');
+const InElementTransform = require('./lib/in-element-transform');
 
 const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '10.0.0'; // t.b.d
 
@@ -14,7 +14,18 @@ module.exports = {
       return;
     }
 
-    let inElementPolyfillPlugin = {
+    let inElementPolyfillPlugin = this._buildPlugin();
+    inElementPolyfillPlugin.parallelBabel = {
+      requireFile: __filename,
+      buildUsing: '_buildPlugin',
+      params: {}
+    };
+    registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
+    debug(`adding AST transform ember-in-element-polyfill`);
+  },
+
+  _buildPlugin() {
+    return {
       name: 'ember-in-element-polyfill',
       plugin: InElementTransform,
       baseDir() {
@@ -23,9 +34,7 @@ module.exports = {
       cacheKey() {
         return 'ember-in-element-polyfill';
       }
-    };
-    registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
-    debug(`adding AST transform ember-in-element-polyfill`);
+    }
   },
 
   treeForAddon() {
