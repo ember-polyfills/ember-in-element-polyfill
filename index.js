@@ -14,7 +14,18 @@ module.exports = {
       return;
     }
 
-    let inElementPolyfillPlugin = {
+    let inElementPolyfillPlugin = this._buildPlugin();
+    inElementPolyfillPlugin.parallelBabel = {
+      requireFile: __filename,
+      buildUsing: '_buildPlugin',
+      params: {}
+    };
+    registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
+    debug(`adding AST transform ember-in-element-polyfill`);
+  },
+
+  _buildPlugin() {
+    return {
       name: 'ember-in-element-polyfill',
       plugin: InElementTransform,
       baseDir() {
@@ -24,8 +35,6 @@ module.exports = {
         return 'ember-in-element-polyfill';
       }
     };
-    registry.add('htmlbars-ast-plugin', inElementPolyfillPlugin);
-    debug(`adding AST transform ember-in-element-polyfill`);
   },
 
   treeForAddon() {
