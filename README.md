@@ -1,6 +1,9 @@
 # ember-in-element-polyfill
 
 [![Build Status](https://travis-ci.org/kaliber5/ember-in-element-polyfill.svg?branch=master)](https://travis-ci.org/kaliber5/ember-in-element-polyfill)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-in-element-polyfill.svg)](https://emberobserver.com/addons/ember-in-element-polyfill)
+[![npm version](https://badge.fury.io/js/ember-in-element-polyfill.svg)](https://badge.fury.io/js/ember-in-element-polyfill)
+
 
 This will make `in-element` (see [RFC 287](https://github.com/emberjs/rfcs/pull/287)) available in all Ember versions
 starting at 2.12.
