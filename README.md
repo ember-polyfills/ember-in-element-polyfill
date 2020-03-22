@@ -1,6 +1,6 @@
 # ember-in-element-polyfill
 
-[![Build Status](https://travis-ci.org/kaliber5/ember-in-element-polyfill.svg?branch=master)](https://travis-ci.org/kaliber5/ember-in-element-polyfill)
+[![Build Status](https://github.com/kaliber5/ember-in-element-polyfill/workflows/CI/badge.svg)](https://github.com/kaliber5/ember-in-element-polyfill/actions)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-in-element-polyfill.svg)](https://emberobserver.com/addons/ember-in-element-polyfill)
 [![npm version](https://badge.fury.io/js/ember-in-element-polyfill.svg)](https://badge.fury.io/js/ember-in-element-polyfill)
 
