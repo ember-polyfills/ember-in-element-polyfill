@@ -4,7 +4,7 @@ const VersionChecker = require('ember-cli-version-checker');
 const InElementTransform = require('./lib/in-element-transform');
 const debug = require('debug')('ember-in-element-polyfill');
 
-const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '10.0.0'; // t.b.d
+const MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION = '3.20.0-beta.0';
 
 module.exports = {
   name: require('./package').name,
@@ -50,8 +50,6 @@ module.exports = {
   },
 
   hasPublicInElement() {
-    // @todo once https://github.com/emberjs/rfcs/pull/287 is accepted and implemented, this function should return
-    // true for any Ember version that already ships a public `in-element`!
     this.ensureEmberVersion();
     return this.emberVersion.gte(MINIMUM_PUBLIC_IN_ELEMENT_EMBER_VERSION);
   },
