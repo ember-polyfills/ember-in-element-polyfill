@@ -39,6 +39,15 @@ Contributing
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
+Credits
+------------------------------------------------------------------------------
+
+![kaliber5](https://www.kaliber5.de/assets/images/kaliber5.png)
+
+This polyfill was originally developed by [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](https://github.com/kaliber5).
+
+Many thanks to all the additional [contributors](https://github.com/kaliber5/ember-in-element-polyfill/graphs/contributors)!
+
 License
 ------------------------------------------------------------------------------
 
