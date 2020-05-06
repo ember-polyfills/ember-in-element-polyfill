@@ -1,1 +1,1 @@
-export { default, clearElement } from 'ember-in-element-polyfill/helpers/-clear-element';
+export { default } from 'ember-in-element-polyfill/helpers/-clear-element';
