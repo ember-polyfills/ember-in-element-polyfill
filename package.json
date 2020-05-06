@@ -1,11 +1,11 @@
 {
   "name": "ember-in-element-polyfill",
   "version": "1.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Polyfill for `in-element` as per RFC 287",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "https://github.com/kaliber5/ember-in-element-polyfill",
+  "repository": "https://github.com/ember-polyfills/ember-in-element-polyfill",
   "license": "MIT",
   "author": "Simon Ihmig <ihmig@kaliber5.de>",
   "directories": {

@@ -1,6 +1,6 @@
 # ember-in-element-polyfill
 
-[![Build Status](https://github.com/kaliber5/ember-in-element-polyfill/workflows/CI/badge.svg)](https://github.com/kaliber5/ember-in-element-polyfill/actions)
+[![Build Status](https://github.com/ember-polyfills/ember-in-element-polyfill/workflows/CI/badge.svg)](https://github.com/ember-polyfills/ember-in-element-polyfill/actions)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-in-element-polyfill.svg)](https://emberobserver.com/addons/ember-in-element-polyfill)
 [![npm version](https://badge.fury.io/js/ember-in-element-polyfill.svg)](https://badge.fury.io/js/ember-in-element-polyfill)
 
@@ -46,7 +46,7 @@ Credits
 
 This polyfill was originally developed by [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](https://github.com/kaliber5).
 
-Many thanks to all the additional [contributors](https://github.com/kaliber5/ember-in-element-polyfill/graphs/contributors)!
+Many thanks to all the additional [contributors](https://github.com/ember-polyfills/ember-in-element-polyfill/graphs/contributors)!
 
 License
 ------------------------------------------------------------------------------
