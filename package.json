@@ -1,6 +1,6 @@
 {
   "name": "ember-in-element-polyfill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Polyfill for `in-element` as per RFC 287",
   "keywords": [
     "ember-addon"
