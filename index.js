@@ -56,7 +56,7 @@ module.exports = {
 
   ensureEmberVersion() {
     if (!this.emberVersion) {
-      let checker = new VersionChecker(this);
+      let checker = new VersionChecker(this.project);
       this.emberVersion = checker.for(`ember-source`);
       debug(`Detected Ember version ${this.emberVersion.version}`);
     }
